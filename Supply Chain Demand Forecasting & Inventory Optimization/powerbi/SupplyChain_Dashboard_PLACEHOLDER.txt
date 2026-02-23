@@ -1,0 +1,44 @@
+SupplyChain_Forecast_Dashboard.pbix
+=====================================
+Placeholder for Power BI report file.
+
+DASHBOARD PAGES:
+1. Executive Summary KPIs
+   - KPI cards: Forecast Accuracy, Products at Risk, Total Inv Cost, Avg Days of Supply
+   - Trend line: Monthly demand all 5 categories
+   - Alert banner: Low-stock notification
+
+2. Demand Forecast
+   - Line chart: Actual + 3 forecast models per category
+   - Accuracy matrix: MAPE by model × category
+   - Slicer: Category, Forecast Model
+
+3. Inventory Health
+   - Gauge charts: Current Stock vs ROP vs Safety Stock
+   - Status table with conditional formatting (red/amber/green)
+   - Bar chart: EOQ vs Current Order Qty
+
+4. Cost Analysis
+   - Stacked bar: Holding cost + Ordering cost by category
+   - Cost savings waterfall: Before vs After EOQ optimization
+   - Trend: Monthly inventory cost over time
+
+5. Low-Stock Alerts
+   - Alert cards with dynamic color (DAX: Stock Alert Color)
+   - Reorder recommendation table
+   - Days of Supply gauge
+
+REBUILD INSTRUCTIONS:
+1. Open Power BI Desktop
+2. Import data from:
+   - data/processed/forecast_output.csv       → DimForecast
+   - data/processed/inventory_optimization_output.csv → DimInventory
+   - data/raw/sales_data_2024.csv             → FactSales
+3. Create DimDate using Power Query:
+   = List.Dates(#date(2024,1,1), 366, #duration(1,0,0,0))
+4. Build all relationships (see dax_measures.md)
+5. Add all DAX measures from dax_measures.md
+6. Configure conditional formatting using [Stock Alert Color] measure
+
+NOTE: .pbix files are binary — commit dax_measures.md + data files,
+      rebuild .pbix in Power BI Desktop from those sources.
