@@ -7,7 +7,7 @@
   <img src="https://img.shields.io/badge/Status-Complete-1E8449?style=for-the-badge"/>
 </p>
 
-> **Personal Project · February 2025 · Mousumi Paul**
+> **Personal Project · February 2026 · Mousumi Paul**
 
 An end-to-end supply chain analytics solution covering **demand forecasting** and **inventory optimization** across 5 product categories using 12 months of historical sales data — achieving **88% forecast accuracy** and an estimated **22% reduction in excess inventory holding costs**.
 
